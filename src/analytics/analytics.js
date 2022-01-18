@@ -6,6 +6,7 @@ const referrer = document.referrer;
 document.onreadystatechange = async () => {
     if (document.readyState === 'complete') {
         const userInfo = await fetch('http://ip-api.com/json').then(res => res.json())
+        
         if(!referrer.includes('localhost') && !referrer.includes('127.0.0.1')) {
             await fetch('https://api.lancero.app/projects/addvisit', {
                 method: 'POST',
